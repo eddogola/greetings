@@ -3,6 +3,7 @@ package greetings
 import (
 	"fmt"
 	"math/rand"
+	"time"
 	"errors"
 )
 
@@ -21,6 +22,10 @@ func Hellos(name string) (map[string]string, error) {
 	return map[string]string{
 		name: fmt.Sprintf(greetingFormat(), name),
 	}, nil
+}
+
+func init() {
+	rand.Seed(time.Now().UnixNano())
 }
 
 func greetingFormat() string {
